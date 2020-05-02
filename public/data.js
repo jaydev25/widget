@@ -1,6 +1,5 @@
 function WidgetCallback(JSONobject) {
     var wHelloWorld = JSONobject;
-    console.log(wHelloWorld["script test"]);
     var wHTML = "";
     var position = '';
     switch(wPosition) {
@@ -61,7 +60,6 @@ function makeCorsRequest() {
   // Response handlers.
   xhr.onload = function() {
     var text = xhr.responseText;
-    console.log('//////////////////', text);
     WidgetCallback(JSON.parse(text));
   };
 
