@@ -22,4 +22,6 @@ app.get('/get/number', function(req, res) {
   });
 });
 
-app.listen(9004);
+app.listen(9004, () => {
+  console.log('Listining on http://localhost:9004');
+});
