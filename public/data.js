@@ -1,9 +1,26 @@
 function WidgetCallback(JSONobject) {
     var wHelloWorld = JSONobject;
-    console.log(JSONobject);
+    console.log(wHelloWorld["script test"]);
     var wHTML = "";
+    var position = '';
+    switch(wPosition) {
+      case 'bottom-left':
+        position = 'position: absolute; left: 0; bottom: 0'
+        break;
+      case 'bottom-right':
+        position = 'position: absolute; right: 0; bottom: 0'
+        break;
+      case 'top-left':
+        position = 'position: absolute; left: 0; top: 0'
+        break;
+      case 'top-right':
+        position = 'position: absolute; right: 0; top: 0'
+        break;
+      default:
+        break;
+    }
 
-    wHTML += ('<center><div id="MyWidget" style="background:black;width:' + wWidth + ';Height:' + wHeight + ';" >');
+    wHTML += ('<center><div id="MyWidget" style="background:black;width:' + wWidth + ';Height:' + wHeight + ';' + position + '" >');
     wHTML += ('<br><div style="font-size:x-large;text-decoration:none;color:' + wFColor + '">');
     wHTML += ( wHelloWorld["script test"].labels + ' <br> ' + wHelloWorld["script test"].phone_number + '</div><br>');
     wHTML += ('</div></center>');
@@ -33,7 +50,7 @@ function createCORSRequest(method, url) {
 // Make the actual CORS request.
 function makeCorsRequest() {
   // This is a sample server that supports CORS.
-  var url = 'http://localhost:9004/get/number';
+  var url = 'https://codifyinditest.com/script_test/api-test';
 
   var xhr = createCORSRequest('GET', url);
   if (!xhr) {
